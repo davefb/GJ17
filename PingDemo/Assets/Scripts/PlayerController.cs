@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
+    
+    public LineDropper lineDropper;
+    // Use this for initialization
+    void Start () {
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -25,5 +25,10 @@ public class PlayerController : MonoBehaviour {
                 
             }
             transform.LookAt(hit.point);
+        if (Input.GetKeyDown(KeyCode.Mouse0) && GetComponent<WaveController>().laserOn == true)
+        {
+            lineDropper.SpawnNewBeam(transform.position, hit.point);
+        }
     }
+
 }

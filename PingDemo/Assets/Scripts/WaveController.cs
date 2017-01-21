@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class WaveController : MonoBehaviour
@@ -9,9 +10,10 @@ public class WaveController : MonoBehaviour
     //the attached line renderer  
     LineRenderer lineRenderer;
 
+
     List<Vector3> hitPoints = new List<Vector3>();
 
-    bool laserOn = false;
+    public bool laserOn = false;
 
     //a ray  
     Ray ray;
@@ -48,6 +50,7 @@ public class WaveController : MonoBehaviour
         }
         if (laserOn)
         {
+            
             lineRenderer.enabled = true;
             //clamp the number of reflections between 1 and int capacity  
             nReflections = Mathf.Clamp(nReflections, 1, nReflections);
@@ -117,6 +120,15 @@ public class WaveController : MonoBehaviour
                     }
                 }
             }
+        }
+    }
+    void FireWave(Vector3[] hits)
+    {
+        for (int i = 0; i < hits.Length - 1; i++)
+        {
+            lineRenderer.SetPosition(i, hits[i]);
+            lineRenderer.SetPosition(i, hits[i + 1]);
+            
         }
     }
 }
