@@ -18,7 +18,6 @@ public class PlayerController : MonoBehaviour {
             if(hit.transform.gameObject.layer != 8)
             {
                 hit.point = new Vector3(hit.point.x, 0, hit.point.z);
-                Debug.Log(hit.point);
             }
             else
             {
