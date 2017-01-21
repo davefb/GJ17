@@ -10,19 +10,24 @@ public class DrawPing : MonoBehaviour {
 
 
     // Use this for initialization
-    void Start () {
+    void Awake () {
         circleLineRenderer = GetComponent<LineRenderer>();
 
     }
 	
 	// Update is called once per frame
 	void Update () {
-        circleLineRenderer.SetVertexCount(pts.Length);
-        circleLineRenderer.SetPositions(pts);
+        
+
     }
 
     internal void setPoints(List<Vector3> q)
     {
         pts = q.ToArray();
+        if (circleLineRenderer != null)
+        {
+            circleLineRenderer.SetVertexCount(pts.Length);
+            circleLineRenderer.SetPositions(pts);
+        }
     }
 }
