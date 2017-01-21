@@ -39,6 +39,7 @@ public class ShootBeam : MonoBehaviour {
             Vector3 reflection = Vector3.Reflect(dir, r.normal);
             curPoint = r.point;
             curDirection = reflection;
+            Debug.DrawRay(start, dir);
         }
 
     }
