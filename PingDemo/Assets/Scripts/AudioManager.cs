@@ -22,6 +22,7 @@ public class AudioManager : MonoBehaviour {
 			//click.PlayOneShot (click.clip);
 			nextTime += delta;
 			player.BroadcastMessage ("Tick");
+			WallHitHandler.Tick ();
 		}
 
 

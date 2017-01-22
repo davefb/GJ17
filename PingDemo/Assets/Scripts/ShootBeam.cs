@@ -26,15 +26,11 @@ public class ShootBeam : MonoBehaviour {
     void Update () {
 		pingDropper.radius+= Time.deltaTime ;
 		pingDropper.DrawCircle();
-<<<<<<< Updated upstream
-
-=======
 	    if(Time.timeSinceLevelLoad > count){
             lineDropper.Tick();
  
             count++;
         }
->>>>>>> Stashed changes
 	}
 
 
