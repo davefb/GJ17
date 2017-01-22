@@ -6,7 +6,9 @@ public class WallHitHandler : HitHandler {
 	public GameObject glowParticles;
 
 	static Material origmaterial;
-	static Material glowmaterial;
+	static Material glowmaterial1;
+	static Material glowmaterial2;
+	static Material glowmaterial3;
 
 	static bool[] glowingwalls;
 	static int[] glowingwallstime; // takes 3 ticks for glow to dissapear
@@ -14,7 +16,9 @@ public class WallHitHandler : HitHandler {
 	// Use this for initialization
 	void Start () {
 		origmaterial = GameObject.Find("NonGlowingReference").GetComponent<Renderer>().material;
-		glowmaterial = GameObject.Find("GlowingReference").GetComponent<Renderer>().material;
+		glowmaterial1 = GameObject.Find("GlowingReference1").GetComponent<Renderer>().material;
+		glowmaterial2 = GameObject.Find("GlowingReference2").GetComponent<Renderer>().material;
+		glowmaterial3 = GameObject.Find("GlowingReference3").GetComponent<Renderer>().material;
 
 		int x = 0;
 		foreach (Transform child in GameObject.Find("Walls").transform) {
@@ -61,13 +65,13 @@ public class WallHitHandler : HitHandler {
 	void glow(GameObject hit) {
 		// make the hit wall emission white for a few seconds
 		Renderer rend = hit.GetComponent<Renderer>();
-		rend.material = glowmaterial;
+		rend.material = glowmaterial3;
 
 		int x = 0;
 		foreach (Transform child in GameObject.Find("Walls").transform) {
 			if (child.gameObject.name == hit.name) {
 				glowingwalls [x] = true;
-				glowingwallstime [x] = 3;
+				glowingwallstime [x] = 4;
 			}
 
 			x++;
@@ -80,7 +84,13 @@ public class WallHitHandler : HitHandler {
 		foreach (Transform child in GameObject.Find("Walls").transform) {
 			if (glowingwalls [x]) {
 				glowingwallstime [x]--;
-				if (glowingwallstime [x] == 0) {
+				if (glowingwallstime [x] == 3) {
+					child.gameObject.GetComponent<Renderer> ().material = glowmaterial3;
+				} else if (glowingwallstime [x] == 2) {
+					child.gameObject.GetComponent<Renderer> ().material = glowmaterial2;
+				} else if (glowingwallstime [x] == 1) {
+					child.gameObject.GetComponent<Renderer> ().material = glowmaterial1;
+				} else if (glowingwallstime [x] == 0) {
 					child.gameObject.GetComponent<Renderer> ().material = origmaterial;
 				}
 			}
