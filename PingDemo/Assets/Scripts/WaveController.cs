@@ -43,13 +43,14 @@ public class WaveController : MonoBehaviour
         {
             laserOn = true;
         }
-        if (Input.GetKeyUp(KeyCode.Mouse1))
+        if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyUp(KeyCode.Mouse1))
         {
             laserOn = false;
             lineRenderer.enabled = false;
         }
         if (laserOn)
-        {            
+        {
+            
             lineRenderer.enabled = true;
             //clamp the number of reflections between 1 and int capacity  
             nReflections = Mathf.Clamp(nReflections, 1, nReflections);
@@ -119,6 +120,15 @@ public class WaveController : MonoBehaviour
                     }
                 }
             }
+        }
+    }
+    void FireWave(Vector3[] hits)
+    {
+        for (int i = 0; i < hits.Length - 1; i++)
+        {
+            lineRenderer.SetPosition(i, hits[i]);
+            lineRenderer.SetPosition(i, hits[i + 1]);
+            
         }
     }
 }

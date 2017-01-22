@@ -61,9 +61,10 @@ public class DrawBeam : MonoBehaviour {
             curDirection = reflection;
             curBounce += 1;
 
-            if (r.collider.tag == "Target")
+			HitHandler hh = r.collider.GetComponent<HitHandler> ();
+			if (hh!= null)
             {
-                curBounce += maxBounce;
+				hh.HandleBeamHit (r);
             }
 
         }
