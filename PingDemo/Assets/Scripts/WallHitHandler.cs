@@ -11,31 +11,22 @@ public class WallHitHandler : HitHandler {
 	static Material glowmaterial2;
 	static Material glowmaterial3;
 
-	static bool[] glowingwalls;
-	static int[] glowingwallstime; // takes 3 ticks for glow to dissapear
-
+    static Dictionary<GameObject, int> glowingwalls = new Dictionary<GameObject, int>();
+	static WallHitHandler[] walls;
     Color lerpColor;
-
+     const int BLANK_FADE = 0;
 	// Use this for initialization
 	void Start () {
 		origmaterial = GameObject.Find("NonGlowingReference").GetComponent<Renderer>().material;
-		glowmaterial1 = GameObject.Find("GlowingReference1").GetComponent<Renderer>().material;
-		glowmaterial2 = GameObject.Find("GlowingReference2").GetComponent<Renderer>().material;
-		glowmaterial3 = GameObject.Find("GlowingReference3").GetComponent<Renderer>().material;
+		glowmaterial1 = GameObject.Find("GlowingReference").GetComponent<Renderer>().material;
+		glowmaterial2 = GameObject.Find("GlowingReference1").GetComponent<Renderer>().material;
+		glowmaterial3 = GameObject.Find("GlowingReference2").GetComponent<Renderer>().material;
 
 		int x = 0;
-        foreach (GameObject childGameobject in GameObject.FindGameObjectsWithTag("Walls"))
-        {
-            Transform child = childGameobject.transform;
-            x++;
-		}
-		glowingwalls = new bool[x];
-		glowingwallstime = new int[x];
+        glowingwalls.Add(this.gameObject, BLANK_FADE);
 
-		for (int i = 0; i < x; i++) {
-			glowingwalls [i] = false;
-			glowingwallstime [i] = 0;
-		}
+
+
 
 	}
 	
@@ -66,42 +57,40 @@ public class WallHitHandler : HitHandler {
 
 	}
 
-	void glow(GameObject hit) {
-		// make the hit wall emission white for a few seconds
-		Renderer rend = hit.GetComponent<Renderer>();
-		rend.material = glowmaterial3;
+    void glow(GameObject hit) {
+        // make the hit wall emission white for a few seconds
 
-		int x = 0;
-		foreach (GameObject childGameobject in GameObject.FindGameObjectsWithTag("Walls")) {
-            Transform child = childGameobject.transform;
-			if (child.gameObject.name == hit.name) {
-				glowingwalls [x] = true;
-				glowingwallstime [x] = 4;
-			}
-
-			x++;
-		}
+        if ( glowingwalls.ContainsKey(hit) ){
+            Renderer rend = hit.GetComponent<Renderer>();
+            rend.material = glowmaterial1;
+            glowingwalls[hit] = 4;
+        }
+    
 	}
 
 	public static void Tick() {
+        if(walls == null)
+        {
+            walls = GameObject.FindGameObjectWithTag("Walls").GetComponentsInChildren<WallHitHandler>();
+        }
 		int x = 0;
 
-        foreach (GameObject childGameobject in GameObject.FindGameObjectsWithTag("Walls"))
+        foreach (WallHitHandler childGameobject in walls)
         {
-            Transform child = childGameobject.transform;
+            GameObject child = childGameobject.gameObject;
             MeshRenderer mRenderer = childGameobject.GetComponent<MeshRenderer>();
-            //         if (glowingwalls [x]) {
-            //	glowingwallstime [x]--;
-            //	if (glowingwallstime [x] == 3) {
-            //		child.gameObject.GetComponent<Renderer> ().material = glowmaterial3;
-            //	} else if (glowingwallstime [x] == 2) {
-            //		child.gameObject.GetComponent<Renderer> ().material = glowmaterial2;
-            //	} else if (glowingwallstime [x] == 1) {
-            //		child.gameObject.GetComponent<Renderer> ().material = glowmaterial1;
-            //	} else if (glowingwallstime [x] == 0) {
-            //		child.gameObject.GetComponent<Renderer> ().material = origmaterial;
-            //	}
-            //}
+            if (glowingwalls.ContainsKey(child)) {
+            	glowingwalls [child]--;
+            	if (glowingwalls[child] == 3) {
+            		child.gameObject.GetComponent<Renderer> ().material = glowmaterial1;
+            	} else if (glowingwalls[child]  == 2) {
+            		child.gameObject.GetComponent<Renderer> ().material = glowmaterial2;
+            	} else if (glowingwalls[child] == 1) {
+            		child.gameObject.GetComponent<Renderer> ().material = glowmaterial3;
+            	} else if (glowingwalls[child]  == 0) {
+            		child.gameObject.GetComponent<Renderer> ().material = origmaterial;
+            	}
+            }
             x++;
 		}
 	}

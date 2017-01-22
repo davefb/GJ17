@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour {
 	public Transform player;
+
 	AudioSource click;
 	public float bpm;
 	float delta;
@@ -22,8 +23,8 @@ public class AudioManager : MonoBehaviour {
 			//click.PlayOneShot (click.clip);
 			nextTime += delta;
 			player.BroadcastMessage ("Tick");
-			WallHitHandler.Tick ();
-		}
+            WallHitHandler.Tick();
+        }
 
 
 	}
