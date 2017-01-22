@@ -57,11 +57,16 @@ public class KeyHitHandler : HitHandler {
     {
         
         base.HandleBeamHit(rch);
+        if (this.GetComponentInChildren<PingDropper>() != null) this.GetComponentInChildren<PingDropper>().fire();
         if (currentState == State.ACTIVE)
         {
             currentState = State.HIT;
             Debug.Log("hit", this);
             UpdateMaterial();
+        }
+        else
+        {
+            StartCoroutine(offLight());
         }
 
 

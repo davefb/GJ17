@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System;
 
 public class PingDropper : MonoBehaviour {
-    public float ThetaScale = 0.01f;
+    public float ThetaScale = 0.00001f;
     public float radius = 3f;
 	
     private float Theta = 0f;
@@ -28,8 +28,26 @@ public class PingDropper : MonoBehaviour {
 		hitCache = new int[Size];
 	}
 
-	// Update is called once per frame
-	public void DrawCircle () {
+    Boolean go = false;
+    float pingStart = 0;
+    internal void fire()
+    {
+        go = true;
+        pingStart = Time.timeSinceLevelLoad;
+
+ 
+     
+    }
+    public void Update()
+    {
+        if (go) { 
+            this.radius += Time.deltaTime;
+            DrawCircle();
+        }
+
+    }
+    // Update is called once per frame
+    public void DrawCircle () {
         foreach (DrawPing dp in segments) GameObject.DestroyImmediate(dp.gameObject);
         segments.Clear();
         Theta = 0f;
@@ -61,7 +79,7 @@ public class PingDropper : MonoBehaviour {
             else
             {
                 isHit = true;
-                q.Add(new Vector3(x, 0, y));
+                q.Add(new Vector3(x + transform.position.x, 0, y+ transform.position.z));
             }
 
 

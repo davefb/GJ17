@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WallHitHandler : HitHandler {
 	public GameObject glowParticles;
-    public AnimationCurve fadeWave;
+  //  public AnimationCurve fadeWave;
 
 	static Material origmaterial;
 	static Material glowmaterial1;
@@ -57,18 +57,27 @@ public class WallHitHandler : HitHandler {
 
 	}
 
-    void glow(GameObject hit) {
+    void glow(GameObject hit)
+    {
         // make the hit wall emission white for a few seconds
+        Renderer rend = hit.GetComponent<Renderer>();
+        rend.material.EnableKeyword("_EMISSION");
+        rend.material.SetColor("_EmissionColor", new Color(1, 1, 1, 1));
+        DynamicGI.UpdateMaterials(rend);
+        DynamicGI.UpdateEnvironment();
 
-        if ( glowingwalls.ContainsKey(hit) ){
-            Renderer rend = hit.GetComponent<Renderer>();
-            rend.material = glowmaterial1;
-            glowingwalls[hit] = 4;
-        }
-    
-	}
+        if(hit.GetComponent<FadeColor>() != null)
+            hit.GetComponent<FadeColor>().StartFade();
 
-	public static void Tick() {
+        //if ( glowingwalls.ContainsKey(hit) ){
+        //    rend.material = glowmaterial1;
+        //    glowingwalls[hit] = 4;
+        //}
+
+    }
+
+    public static void Tick() {
+        /*
         if(walls == null)
         {
             walls = GameObject.FindGameObjectWithTag("Walls").GetComponentsInChildren<WallHitHandler>();
@@ -93,5 +102,6 @@ public class WallHitHandler : HitHandler {
             }
             x++;
 		}
+    */
 	}
 }
