@@ -11,10 +11,13 @@ public class PlayerController : MonoBehaviour {
     Anchor currentAnchor;
     // Use this for initialization
     void Start () {
-        Anchors = GameObject.FindGameObjectsWithTag("Anchor");
-        transform.position = StartAnchor.transform.position;
-        currentAnchor = StartAnchor.GetComponent<Anchor>();
-        currentAnchor.GetComponent<MeshRenderer>().enabled = false;
+        if (StartAnchor != null)
+        {
+            Anchors = GameObject.FindGameObjectsWithTag("Anchor");
+            transform.position = StartAnchor.transform.position;
+            currentAnchor = StartAnchor.GetComponent<Anchor>();
+            currentAnchor.GetComponent<MeshRenderer>().enabled = false;
+        }
     }
 	
 	// Update is called once per frame

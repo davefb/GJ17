@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WallHitHandler : HitHandler {
 	public GameObject glowParticles;
+    public AnimationCurve fadeWave;
 
 	static Material origmaterial;
 	static Material glowmaterial1;
@@ -13,6 +14,8 @@ public class WallHitHandler : HitHandler {
 	static bool[] glowingwalls;
 	static int[] glowingwallstime; // takes 3 ticks for glow to dissapear
 
+    Color lerpColor;
+
 	// Use this for initialization
 	void Start () {
 		origmaterial = GameObject.Find("NonGlowingReference").GetComponent<Renderer>().material;
@@ -21,8 +24,10 @@ public class WallHitHandler : HitHandler {
 		glowmaterial3 = GameObject.Find("GlowingReference3").GetComponent<Renderer>().material;
 
 		int x = 0;
-		foreach (Transform child in GameObject.Find("Walls").transform) {
-			x++;
+        foreach (GameObject childGameobject in GameObject.FindGameObjectsWithTag("Walls"))
+        {
+            Transform child = childGameobject.transform;
+            x++;
 		}
 		glowingwalls = new bool[x];
 		glowingwallstime = new int[x];
@@ -36,7 +41,6 @@ public class WallHitHandler : HitHandler {
 	
 	// Update is called once per frame
 	void Update () {
-		
 	}
 
 	public override void HandlePulseHit(RaycastHit rch){
@@ -68,7 +72,8 @@ public class WallHitHandler : HitHandler {
 		rend.material = glowmaterial3;
 
 		int x = 0;
-		foreach (Transform child in GameObject.Find("Walls").transform) {
+		foreach (GameObject childGameobject in GameObject.FindGameObjectsWithTag("Walls")) {
+            Transform child = childGameobject.transform;
 			if (child.gameObject.name == hit.name) {
 				glowingwalls [x] = true;
 				glowingwallstime [x] = 4;
@@ -81,20 +86,23 @@ public class WallHitHandler : HitHandler {
 	public static void Tick() {
 		int x = 0;
 
-		foreach (Transform child in GameObject.Find("Walls").transform) {
-			if (glowingwalls [x]) {
-				glowingwallstime [x]--;
-				if (glowingwallstime [x] == 3) {
-					child.gameObject.GetComponent<Renderer> ().material = glowmaterial3;
-				} else if (glowingwallstime [x] == 2) {
-					child.gameObject.GetComponent<Renderer> ().material = glowmaterial2;
-				} else if (glowingwallstime [x] == 1) {
-					child.gameObject.GetComponent<Renderer> ().material = glowmaterial1;
-				} else if (glowingwallstime [x] == 0) {
-					child.gameObject.GetComponent<Renderer> ().material = origmaterial;
-				}
-			}
-			x++;
+        foreach (GameObject childGameobject in GameObject.FindGameObjectsWithTag("Walls"))
+        {
+            Transform child = childGameobject.transform;
+            MeshRenderer mRenderer = childGameobject.GetComponent<MeshRenderer>();
+            //         if (glowingwalls [x]) {
+            //	glowingwallstime [x]--;
+            //	if (glowingwallstime [x] == 3) {
+            //		child.gameObject.GetComponent<Renderer> ().material = glowmaterial3;
+            //	} else if (glowingwallstime [x] == 2) {
+            //		child.gameObject.GetComponent<Renderer> ().material = glowmaterial2;
+            //	} else if (glowingwallstime [x] == 1) {
+            //		child.gameObject.GetComponent<Renderer> ().material = glowmaterial1;
+            //	} else if (glowingwallstime [x] == 0) {
+            //		child.gameObject.GetComponent<Renderer> ().material = origmaterial;
+            //	}
+            //}
+            x++;
 		}
 	}
 }
