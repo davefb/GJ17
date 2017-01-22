@@ -5,15 +5,16 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
     
     public LineDropper lineDropper;
+    public GameObject StartAnchor;
 
     GameObject[] Anchors;
     Anchor currentAnchor;
     // Use this for initialization
     void Start () {
         Anchors = GameObject.FindGameObjectsWithTag("Anchor");
-        transform.position = Anchors[0].transform.position;
-        currentAnchor = Anchors[0].GetComponent<Anchor>();
-        currentAnchor.GetComponent<MeshRenderer>().enabled = true;
+        transform.position = StartAnchor.transform.position;
+        currentAnchor = StartAnchor.GetComponent<Anchor>();
+        currentAnchor.GetComponent<MeshRenderer>().enabled = false;
     }
 	
 	// Update is called once per frame
