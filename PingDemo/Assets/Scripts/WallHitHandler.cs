@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class WallHitHandler : HitHandler {
 	public GameObject glowParticles;
-    public AnimationCurve fadeWave;
 
 	static Material origmaterial;
 	static Material glowmaterial1;
@@ -13,7 +12,6 @@ public class WallHitHandler : HitHandler {
 
     static Dictionary<GameObject, int> glowingwalls = new Dictionary<GameObject, int>();
 	static WallHitHandler[] walls;
-    Color lerpColor;
      const int BLANK_FADE = 0;
 	// Use this for initialization
 	void Start () {
@@ -59,12 +57,17 @@ public class WallHitHandler : HitHandler {
 
     void glow(GameObject hit) {
         // make the hit wall emission white for a few seconds
+        Renderer rend = hit.GetComponent<Renderer>();
+        rend.material.SetColor("_EmissionColor", new Color(1, 1, 1, 1));
+        DynamicGI.UpdateMaterials(rend);
+        DynamicGI.UpdateEnvironment();
 
-        if ( glowingwalls.ContainsKey(hit) ){
-            Renderer rend = hit.GetComponent<Renderer>();
-            rend.material = glowmaterial1;
-            glowingwalls[hit] = 4;
-        }
+        hit.GetComponent<FadeColor>().StartFade();
+
+        //if ( glowingwalls.ContainsKey(hit) ){
+        //    rend.material = glowmaterial1;
+        //    glowingwalls[hit] = 4;
+        //}
     
 	}
 
@@ -80,16 +83,16 @@ public class WallHitHandler : HitHandler {
             GameObject child = childGameobject.gameObject;
             MeshRenderer mRenderer = childGameobject.GetComponent<MeshRenderer>();
             if (glowingwalls.ContainsKey(child)) {
-            	glowingwalls [child]--;
-            	if (glowingwalls[child] == 3) {
-            		child.gameObject.GetComponent<Renderer> ().material = glowmaterial1;
-            	} else if (glowingwalls[child]  == 2) {
-            		child.gameObject.GetComponent<Renderer> ().material = glowmaterial2;
-            	} else if (glowingwalls[child] == 1) {
-            		child.gameObject.GetComponent<Renderer> ().material = glowmaterial3;
-            	} else if (glowingwalls[child]  == 0) {
-            		child.gameObject.GetComponent<Renderer> ().material = origmaterial;
-            	}
+            	//glowingwalls [child]--;
+            	//if (glowingwalls[child] == 3) {
+            	//	child.gameObject.GetComponent<Renderer> ().material = glowmaterial1;
+            	//} else if (glowingwalls[child]  == 2) {
+            	//	child.gameObject.GetComponent<Renderer> ().material = glowmaterial2;
+            	//} else if (glowingwalls[child] == 1) {
+            	//	child.gameObject.GetComponent<Renderer> ().material = glowmaterial3;
+            	//} else if (glowingwalls[child]  == 0) {
+            	//	child.gameObject.GetComponent<Renderer> ().material = origmaterial;
+            	//}
             }
             x++;
 		}
