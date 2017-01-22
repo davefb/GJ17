@@ -32,10 +32,14 @@ public class WaveController : MonoBehaviour
     void Awake()
     {
         //get the attached Transform component  
-        goTransform = transform;
+        changeTransform();
         //get the attached LineRenderer component  
         lineRenderer = GetComponent<LineRenderer>();
     }
+    public void changeTransform()
+    {
+        goTransform = transform;
+    } 
 
     void Update()
     {
