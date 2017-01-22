@@ -39,7 +39,7 @@ public class KeyHitHandler : HitHandler {
             
             }
 
-            UpdateMaterial();
+            
         }
 
         if (found)
@@ -50,6 +50,7 @@ public class KeyHitHandler : HitHandler {
         {
             currentState = State.INACTIVE;
         }
+        UpdateMaterial();
         currentTick++;
     }
     public override void HandleBeamHit(RaycastHit rch)

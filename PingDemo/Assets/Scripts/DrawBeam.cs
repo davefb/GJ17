@@ -7,7 +7,7 @@ public class DrawBeam : MonoBehaviour {
     LineRenderer shotLineProto;
     Vector3 curPoint;
     Vector3 curDirection;
-    int maxBounce = 10;
+    int maxBounce = 4;
     int curBounce = 0;
 
     LineRenderer li;
@@ -69,6 +69,8 @@ public class DrawBeam : MonoBehaviour {
 			if (hh!= null)
             {
 				hh.HandleBeamHit (r);
+                if(r.collider.GetComponent<KeyHitHandler>())
+                    curBounce += maxBounce;
             }
 
         }
@@ -80,7 +82,7 @@ public class DrawBeam : MonoBehaviour {
         Dictionary<LineRenderer, int> nextdecay = new Dictionary<LineRenderer, int>();
         foreach (LineRenderer lr in decay.Keys)
         {
-            if (decay[lr] == 7)
+            if (decay[lr] < 0)
             {
                 GameObject.Destroy(lr.gameObject);
             }
