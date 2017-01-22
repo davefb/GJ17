@@ -34,7 +34,8 @@ public class PingDropper : MonoBehaviour {
             Theta += (2.0f * Mathf.PI * ThetaScale);
             float x = radius * Mathf.Cos(Theta);
             float y = radius * Mathf.Sin(Theta);
-            if (Physics.Raycast(this.transform.position, new Vector3(x, 0, y), radius))
+			RaycastHit rch; 
+            if (Physics.Raycast(this.transform.position, new Vector3(x, 0, y), out rch, radius))
             {
                 if (isHit)
                 {
@@ -43,7 +44,11 @@ public class PingDropper : MonoBehaviour {
                         SpawnNewCircleSeg();
 
                 }
-
+		
+				HitHandler hh = rch.collider.GetComponent<HitHandler> ();
+				if (hh != null)
+					hh.HandlePulseHit (rch);
+				
             }
             else
             {
