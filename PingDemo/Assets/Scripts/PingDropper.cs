@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System;
 
 public class PingDropper : MonoBehaviour {
-    public float ThetaScale = 0.00001f;
+    public float ThetaScale = 0.01f;
     public float radius = 3f;
 	
     private float Theta = 0f;

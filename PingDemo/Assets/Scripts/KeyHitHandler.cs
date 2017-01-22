@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class KeyHitHandler : HitHandler {
     enum State { INACTIVE, ACTIVE, HIT};
-    bool lightOn = false;
+    int lightOn = 0;
     State currentState = State.INACTIVE;
     public int[] activeBeats;
     public Material hitColor;
@@ -18,7 +18,7 @@ public class KeyHitHandler : HitHandler {
 	
 	// Update is called once per frame
 	void Update () {
-        if (lightOn)
+        if (lightOn>0)
         {
             this.GetComponentInChildren<Light>().intensity = 1.5f;
         }
@@ -75,16 +75,16 @@ public class KeyHitHandler : HitHandler {
     public override void HandlePulseHit(RaycastHit rch)
     {
 
-        base.HandleBeamHit(rch);
+        //base.HandleBeamHit(rch);
         
         StartCoroutine( offLight() );
     }
 
     IEnumerator offLight()
     {
-        this.lightOn = true;
+        this.lightOn++;
         yield return new WaitForSeconds(2);
-        this.lightOn = false;
+        this.lightOn--;
     }
     public void UpdateMaterial()
     {
