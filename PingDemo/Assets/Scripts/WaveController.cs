@@ -50,7 +50,7 @@ public class WaveController : MonoBehaviour
         }
         if (laserOn)
         {
-            
+
             lineRenderer.enabled = true;
             //clamp the number of reflections between 1 and int capacity  
             nReflections = Mathf.Clamp(nReflections, 1, nReflections);
@@ -111,7 +111,7 @@ public class WaveController : MonoBehaviour
                         Debug.DrawRay(hit.point, hit.normal * 3, Color.blue);
                         //represent the ray using a line that can only be viewed at the scene tab  
                         Debug.DrawRay(hit.point, inDirection * 100, Color.red);
-                        
+
                         //add a new vertex to the line renderer  
                         lineRenderer.SetVertexCount(++nPoints);
                         //set the position of the next vertex at the line renderer to be the same as the hit point  
@@ -120,15 +120,6 @@ public class WaveController : MonoBehaviour
                     }
                 }
             }
-        }
-    }
-    void FireWave(Vector3[] hits)
-    {
-        for (int i = 0; i < hits.Length - 1; i++)
-        {
-            lineRenderer.SetPosition(i, hits[i]);
-            lineRenderer.SetPosition(i, hits[i + 1]);
-            
         }
     }
 }

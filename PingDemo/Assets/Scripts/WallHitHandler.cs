@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HitHandler : MonoBehaviour {
+public class WallHitHandler : HitHandler {
 	public GameObject glowParticles;
 	// Use this for initialization
 	void Start () {
