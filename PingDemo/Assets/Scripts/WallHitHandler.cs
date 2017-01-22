@@ -63,6 +63,7 @@ public class WallHitHandler : HitHandler {
     {
         // make the hit wall emission white for a few seconds
         Renderer rend = hit.GetComponent<Renderer>();
+        rend.material.EnableKeyword("_EMISSION");
         rend.material.SetColor("_EmissionColor", new Color(1, 1, 1, 1));
         DynamicGI.UpdateMaterials(rend);
         DynamicGI.UpdateEnvironment();
