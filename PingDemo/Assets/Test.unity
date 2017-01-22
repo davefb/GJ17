@@ -228,7 +228,7 @@ GameObject:
   - component: {fileID: 61592731}
   - component: {fileID: 61592735}
   m_Layer: 8
-  m_Name: Plane
+  m_Name: ww
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -240,7 +240,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 61592730}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_MotionVectors: 1
@@ -273,7 +273,7 @@ MeshCollider:
   m_GameObject: {fileID: 61592730}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Convex: 0
   m_InflateMesh: 0
@@ -293,7 +293,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 61592730}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.03, z: 0}
   m_LocalScale: {x: 4, y: 1, z: 4}
   m_Children: []
   m_Father: {fileID: 0}
@@ -786,7 +786,7 @@ Light:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 432666041}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 7
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4670,7 +4670,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a86e51af45e4a184f930b662f14c1647, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeBeats: 0000000002000000
+  activeBeats: 00000000010000000200000003000000
   hitColor: {fileID: 2100000, guid: ec10e97f0013ec542afb6a837d40273a, type: 2}
   activeColor: {fileID: 2100000, guid: 4dfe46e1945b28b4fab6b14a08d02233, type: 2}
   inactiveColor: {fileID: 2100000, guid: 07d1c278417b16243be94d62e550c990, type: 2}
@@ -5192,7 +5192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a86e51af45e4a184f930b662f14c1647, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeBeats: 00000000010000000200000003000000
+  activeBeats: 0000000001000000020000000300000004000000050000000600000007000000
   hitColor: {fileID: 2100000, guid: ec10e97f0013ec542afb6a837d40273a, type: 2}
   activeColor: {fileID: 2100000, guid: 4dfe46e1945b28b4fab6b14a08d02233, type: 2}
   inactiveColor: {fileID: 2100000, guid: 07d1c278417b16243be94d62e550c990, type: 2}

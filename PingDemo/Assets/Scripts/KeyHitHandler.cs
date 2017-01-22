@@ -32,7 +32,7 @@ public class KeyHitHandler : HitHandler {
         bool found = false;
         for(int i = 0; i < activeBeats.Length; i++)
         {
-            if(currentTick%4 == activeBeats[i])
+            if(currentTick% 8 == activeBeats[i])
             {
                 found = true;
 

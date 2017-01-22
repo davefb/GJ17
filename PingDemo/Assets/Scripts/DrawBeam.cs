@@ -46,6 +46,7 @@ public class DrawBeam : MonoBehaviour {
     void ShootBeamTowards(Vector3 start, Vector3 dir)
     {
         if (curBounce >= maxBounce) return;
+        dir.y = 0;
         RaycastHit r;
         // if (li != null) GameObject.Destroy(li.gameObject);
         if (Physics.Raycast(start, dir, out r, float.PositiveInfinity))

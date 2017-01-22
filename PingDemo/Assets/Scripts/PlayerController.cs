@@ -36,9 +36,10 @@ public class PlayerController : MonoBehaviour {
                 
             }
             transform.LookAt(hit.point);
-		if (Input.GetKeyDown(KeyCode.Mouse0)) //&& GetComponent<WaveController>().laserOn == true)
+		if (Input.GetMouseButtonDown(0)) //&& GetComponent<WaveController>().laserOn == true)
         {
             lineDropper.SpawnNewBeam(transform.position, (hit.point-transform.position));
+            //Debug.DrawRay(transform.position, (hit.point - transform.position));
         }
         if (Input.GetKeyDown(KeyCode.W))
         {
