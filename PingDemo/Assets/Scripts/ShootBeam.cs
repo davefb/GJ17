@@ -10,27 +10,22 @@ public class ShootBeam : MonoBehaviour {
      PingDropper pingDropper;
      LineDropper lineDropper;
 
-	void Awake () {
+	void Start () {
 
         pingDropper = GetComponentInChildren<PingDropper>();
         lineDropper = GetComponentInChildren<LineDropper>();
         //        curPoint = transform.position;
         //ector3 curDirection = new Vector3(1, 0, 1);
-      //  lineDropper.SpawnNewBeam(transform.position, new Vector3(1, 0, 1));
-      //  lineDropper.SpawnNewBeam(transform.position, new Vector3(0, 0, -1));
+        //  lineDropper.SpawnNewBeam(transform.position, new Vector3(1, 0, 1));
+        //  lineDropper.SpawnNewBeam(transform.position, new Vector3(0, 0, -1));
+        pingDropper.fire();
     }
 
     // Update is called once per frame
     int count = 0;
 
     void Update () {
-		pingDropper.radius+= Time.deltaTime ;
-		pingDropper.DrawCircle();
-	    if(Time.timeSinceLevelLoad > count){
-            lineDropper.Tick();
- 
-            count++;
-        }
+
 	}
 
 
