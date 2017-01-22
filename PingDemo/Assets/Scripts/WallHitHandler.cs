@@ -67,7 +67,7 @@ public class WallHitHandler : HitHandler {
 		foreach (Transform child in GameObject.Find("Walls").transform) {
 			if (child.gameObject.name == hit.name) {
 				glowingwalls [x] = true;
-				glowingwallstime [x] = 10;
+				glowingwallstime [x] = 3;
 			}
 
 			x++;
@@ -76,7 +76,6 @@ public class WallHitHandler : HitHandler {
 
 	public static void Tick() {
 		int x = 0;
-		Debug.Log ("gothere");
 
 		foreach (Transform child in GameObject.Find("Walls").transform) {
 			if (glowingwalls [x]) {
