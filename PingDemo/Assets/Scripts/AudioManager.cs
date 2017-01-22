@@ -30,8 +30,8 @@ public class AudioManager : MonoBehaviour {
             if (Time.timeSinceLevelLoad > cliptime *clipi + delay )
             {
                 Debug.Log("Playing....");
-                click[0].Stop();
-                click[0].Play();
+//                click[0].Stop();
+//                click[0].Play();
                 clipi++;
             }
 
@@ -39,8 +39,8 @@ public class AudioManager : MonoBehaviour {
       //      click[1].Play();
 			nextTime += delta;
             //player.BroadcastMessage ("Tick");
-            GameObject.Find("Keys").BroadcastMessage("Tick");
-            player.root.BroadcastMessage("Tick");
+//            GameObject.Find("Keys").BroadcastMessage("Tick");
+//            player.root.BroadcastMessage("Tick");
             WallHitHandler.Tick();
             
         }
