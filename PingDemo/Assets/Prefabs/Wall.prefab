@@ -305,7 +305,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1864586917898154}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.4, y: 0, z: -0.099999905}
+  m_LocalPosition: {x: -10, y: 0, z: -0.099999905}
   m_LocalScale: {x: 0.5, y: 1, z: 0.5}
   m_Children:
   - {fileID: 4021788564620436}
@@ -975,7 +975,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startFade: 0
-  startColor: {r: 1, g: 1, b: 1, a: 0}
+  fadeUntil: 0
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.995625
+      value: 0.000039157458
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  rend: {fileID: 0}
+  lerpColor: {r: 0, g: 0, b: 0, a: 0}
   endColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &114237273294001056
 MonoBehaviour:
@@ -989,7 +1009,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startFade: 0
-  startColor: {r: 1, g: 1, b: 1, a: 0}
+  fadeUntil: 0
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.995625
+      value: 0.000039157458
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  rend: {fileID: 0}
+  lerpColor: {r: 0, g: 0, b: 0, a: 0}
   endColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &114473044029042426
 MonoBehaviour:
@@ -1057,7 +1097,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startFade: 0
-  startColor: {r: 1, g: 1, b: 1, a: 0}
+  fadeUntil: 0
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.995625
+      value: 0.000039157458
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  rend: {fileID: 0}
+  lerpColor: {r: 0, g: 0, b: 0, a: 0}
   endColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &114527639942165920
 MonoBehaviour:
@@ -1107,7 +1167,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startFade: 0
-  startColor: {r: 1, g: 1, b: 1, a: 0}
+  fadeUntil: 0
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.995625
+      value: 0.000039157458
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  rend: {fileID: 0}
+  lerpColor: {r: 0, g: 0, b: 0, a: 0}
   endColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &114605612488160562
 MonoBehaviour:
@@ -1139,7 +1219,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startFade: 0
-  startColor: {r: 1, g: 1, b: 1, a: 0}
+  fadeUntil: 0
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.995625
+      value: 0.000039157458
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  rend: {fileID: 0}
+  lerpColor: {r: 0, g: 0, b: 0, a: 0}
   endColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &114656136406275846
 MonoBehaviour:
@@ -1171,7 +1271,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startFade: 0
-  startColor: {r: 1, g: 1, b: 1, a: 0}
+  fadeUntil: 0
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.995625
+      value: 0.000039157458
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  rend: {fileID: 0}
+  lerpColor: {r: 0, g: 0, b: 0, a: 0}
   endColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &114717189681272262
 MonoBehaviour:
@@ -1203,7 +1323,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startFade: 0
-  startColor: {r: 1, g: 1, b: 1, a: 0}
+  fadeUntil: 0
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.995625
+      value: 0.000039157458
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  rend: {fileID: 0}
+  lerpColor: {r: 0, g: 0, b: 0, a: 0}
   endColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &114827852450407452
 MonoBehaviour:
@@ -1235,7 +1375,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startFade: 0
-  startColor: {r: 1, g: 1, b: 1, a: 0}
+  fadeUntil: 0
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.995625
+      value: 0.000039157458
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  rend: {fileID: 0}
+  lerpColor: {r: 0, g: 0, b: 0, a: 0}
   endColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &114876159128858546
 MonoBehaviour:
@@ -1249,7 +1409,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startFade: 0
-  startColor: {r: 1, g: 1, b: 1, a: 0}
+  fadeUntil: 0
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.995625
+      value: 0.000039157458
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  rend: {fileID: 0}
+  lerpColor: {r: 0, g: 0, b: 0, a: 0}
   endColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &114884904996637884
 MonoBehaviour:
@@ -1263,7 +1443,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startFade: 0
-  startColor: {r: 1, g: 1, b: 1, a: 0}
+  fadeUntil: 0
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.995625
+      value: 0.000039157458
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  rend: {fileID: 0}
+  lerpColor: {r: 0, g: 0, b: 0, a: 0}
   endColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &114931774572027040
 MonoBehaviour:
@@ -1295,7 +1495,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startFade: 0
-  startColor: {r: 1, g: 1, b: 1, a: 0}
+  fadeUntil: 0
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.995625
+      value: 0.000039157458
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  rend: {fileID: 0}
+  lerpColor: {r: 0, g: 0, b: 0, a: 0}
   endColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &114976252255443440
 MonoBehaviour:
