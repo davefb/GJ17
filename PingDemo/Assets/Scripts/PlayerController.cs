@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour {
             transform.LookAt(hit.point);
 		if (Input.GetKeyDown(KeyCode.Mouse0)) //&& GetComponent<WaveController>().laserOn == true)
         {
-            lineDropper.SpawnNewBeam(transform.position, hit.point);
+            lineDropper.SpawnNewBeam(transform.position, (hit.point-transform.position));
         }
         if (Input.GetKeyDown(KeyCode.W))
         {
@@ -58,6 +58,7 @@ public class PlayerController : MonoBehaviour {
     {
         if (target != null)
         {
+            GetComponent<WaveController>().changeTransform();
             transform.position = target.transform.position;
             currentAnchor.GetComponent<MeshRenderer>().enabled = true;
             currentAnchor = target;
