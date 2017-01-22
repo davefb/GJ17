@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class HitHandler : MonoBehaviour {
-	//public GameObject glowParticles;
+
 	// Use this for initialization
 	void Start () {
 		

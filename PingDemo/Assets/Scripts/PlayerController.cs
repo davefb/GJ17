@@ -5,8 +5,15 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
     
     public LineDropper lineDropper;
+
+    GameObject[] Anchors;
+    Anchor currentAnchor;
     // Use this for initialization
     void Start () {
+        Anchors = GameObject.FindGameObjectsWithTag("Anchor");
+        transform.position = Anchors[0].transform.position;
+        currentAnchor = Anchors[0].GetComponent<Anchor>();
+        currentAnchor.GetComponent<MeshRenderer>().enabled = true;
     }
 	
 	// Update is called once per frame
@@ -29,6 +36,31 @@ public class PlayerController : MonoBehaviour {
         {
             lineDropper.SpawnNewBeam(transform.position, hit.point);
         }
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            MoveTo(currentAnchor.wAnchor);
+        }
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            MoveTo(currentAnchor.aAnchor);
+        }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            MoveTo(currentAnchor.sAnchor);
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            MoveTo(currentAnchor.dAnchor);
+        }
     }
-
+    void MoveTo(Anchor target)
+    {
+        if (target != null)
+        {
+            transform.position = target.transform.position;
+            currentAnchor.GetComponent<MeshRenderer>().enabled = true;
+            currentAnchor = target;
+            currentAnchor.GetComponent<MeshRenderer>().enabled = false;
+        }
+    }
 }
