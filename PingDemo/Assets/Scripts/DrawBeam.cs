@@ -7,7 +7,7 @@ public class DrawBeam : MonoBehaviour {
     LineRenderer shotLineProto;
     Vector3 curPoint;
     Vector3 curDirection;
-    int maxBounce = 4;
+    int maxBounce = 5;
     int curBounce = 0;
 
     LineRenderer li;
@@ -59,6 +59,24 @@ public class DrawBeam : MonoBehaviour {
             decay.Add(li, maxBounce);
             li.SetVertexCount(2);
             li.SetPosition(0, start);
+            switch (curBounce)
+            {
+                case 0:
+                    li.SetColors(Color.red, Color.red);
+                    break;
+                case 1:
+                    li.SetColors(Color.yellow, Color.yellow);
+                    break;
+                case 2:
+                    li.SetColors(Color.green, Color.green);
+                    break;
+                case 3:
+                    li.SetColors(Color.blue, Color.blue);
+                    break;
+                case 4:
+                    li.SetColors(Color.magenta, Color.magenta);
+                    break;
+            }
             li.SetPosition(1, r.point);
             Vector3 reflection = Vector3.Reflect(dir, r.normal);
 

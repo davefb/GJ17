@@ -56,7 +56,8 @@ public class WallHitHandler : HitHandler {
 
     public override void HandleBeamHit(RaycastHit rch)
     {
-
+        GameObject hit = rch.collider.gameObject;
+        glow(hit);
     }
 
     void glow(GameObject hit)
