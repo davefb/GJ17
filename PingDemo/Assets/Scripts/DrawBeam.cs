@@ -33,7 +33,7 @@ public class DrawBeam : MonoBehaviour {
     {
         
         ShootBeamTowards(curPoint, curDirection);
-        Fade();
+      Fade();
     }
     // Update is called once per frame
     void Update () {

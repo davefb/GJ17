@@ -10,8 +10,7 @@ public class ShootBeam : MonoBehaviour {
      PingDropper pingDropper;
      LineDropper lineDropper;
 
-    public UnityEngine.Material hitMaterial;
-	void Start () {
+	void Awake () {
 
         pingDropper = GetComponentInChildren<PingDropper>();
         lineDropper = GetComponentInChildren<LineDropper>();
@@ -27,12 +26,9 @@ public class ShootBeam : MonoBehaviour {
     void Update () {
 		pingDropper.radius+= Time.deltaTime ;
 		pingDropper.DrawCircle();
-	    if(Time.timeSinceLevelLoad > count){
-            lineDropper.Tick();
 
- 
-            count++;
-        }
 	}
+
+
 
 }

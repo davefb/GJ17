@@ -18,6 +18,7 @@ public class HitLock : HitHandler {
 	void Update () {
 		
 	}
+
     public override void HandleBeamHit(RaycastHit rch)
     {
         OnBeamHit(8);

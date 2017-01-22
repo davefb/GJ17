@@ -15,10 +15,7 @@ public class LineDropper : MonoBehaviour {
     }
 	public void Tick()
     {
-        foreach (DrawBeam db in GetComponentsInChildren<DrawBeam>())
-        {
-            db.Tick();
-        }
+		Debug.Log ("tick");
         
     }
 	// Update is called once per frame
