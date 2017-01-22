@@ -6,6 +6,7 @@ using System;
 public class PingDropper : MonoBehaviour {
     public float ThetaScale = 0.01f;
     public float radius = 3f;
+	
     private float Theta = 0f;
     private int Size;
     public DrawPing protoDrawPing;
@@ -16,18 +17,23 @@ public class PingDropper : MonoBehaviour {
     List<Vector3> q = new List<Vector3>();
     private List<DrawPing> segments = new List<DrawPing>();
 
-    void Start()
+    void Awake()
     {
-
+		wipeCache ();
     }
 
+	int[] hitCache;
+	public void wipeCache(){
+		Size = (int)((1f / ThetaScale) + 1f);
+		hitCache = new int[Size];
+	}
 
 	// Update is called once per frame
 	public void DrawCircle () {
         foreach (DrawPing dp in segments) GameObject.DestroyImmediate(dp.gameObject);
         segments.Clear();
         Theta = 0f;
-        Size = (int)((1f / ThetaScale) + 1f);
+
 
         for (int i = 0; i < Size; i++)
         {
@@ -46,8 +52,10 @@ public class PingDropper : MonoBehaviour {
                 }
 		
 				HitHandler hh = rch.collider.GetComponent<HitHandler> ();
-				if (hh != null)
+				if (hh != null && hitCache[i] == 0) {
+					hitCache [i] = 1;
 					hh.HandlePulseHit (rch);
+				}
 				
             }
             else

@@ -12,6 +12,10 @@ public class DrawBeam : MonoBehaviour {
 
     LineRenderer li;
  
+
+	public int getCurBounce(){
+		return curBounce;
+	}
     // Use this for initialization
     void Start () {
         shotLineProto = GetComponentInChildren<LineRenderer>();

@@ -25,11 +25,12 @@ public class ShootBeam : MonoBehaviour {
     int count = 0;
 
     void Update () {
+		pingDropper.radius+= Time.deltaTime ;
+		pingDropper.DrawCircle();
 	    if(Time.timeSinceLevelLoad > count){
             lineDropper.Tick();
 
-            pingDropper.radius = 1.0f + count ;
-            pingDropper.DrawCircle();
+ 
             count++;
         }
 	}
